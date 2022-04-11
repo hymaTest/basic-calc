@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "lib": ["esnext", "dom"],
+    "rootDir": "./",
+    "declaration": true,
+  },
+  "include": [
+    "src/**/*", "dev/web/*.ts",
+  ],
+  "exclude": [
+    "public/**/*",
+    "./*.js",
+    "src/**/__test__/**/*.spec.ts"
+  ],
+  "typedocOptions": {
+    "mode": "file",
+    "name": "MapCore",
+    "out": "./docs",
+    "exclude": "public/**/*.ts",
+    "excludePrivate": true,
+    "hideGenerator": true,
+  }
+}

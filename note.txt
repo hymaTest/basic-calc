@@ -1,0 +1,60 @@
+1- 定为ts项目
+基本项目结构
+.babelrc
+babel: Babel 通过语法转换器来支持新版本的 JavaScript 语法。
+文档: https://www.babeljs.cn/docs/
+presets: 预设
+Babel 的预设（ preset ）可以被看作是一组 Babel 插件和/或 options 配置的可共享模块。
+
+插件在 presets 前运行。
+插件顺序从前往后排列。
+Preset 顺序是颠倒的（从后往前）。
+
+babel-loader
+以上plugins 和 presets 都是在做es6的语法转换和弥补缺失的功能, eg 一些内置方法和对象,Promise之类的, 需要polyfill来做js垫片
+
+.editorconfig
+
+.eslintrc
+eslint 检查工具
+.eslintrc.js 是eslinte的基本配置文件
+extends表示继承该插件中的规则
+env指定你想启用的环境
+plugins表示使用而外的插件，主要有eslint-plugin-html跟eslint-plugin-react
+rules表示一些自定义的配置信息, 例如不想使用一些规则里的东西
+命令行的配置
+"lint": "eslint --ext \".js\" src --fix"
+--ext选项示指ESLint 在指定的目录下查找 JavaScript 文件时要使用的文件扩展名
+--fix选项用来自动修复规则所报告的问题。当使用extends: "standard"时会去除所有JS结尾的分号，当rules中添加 semi: ["error", "always"]  时则会补全所有JS结尾的分号。
+
+
+.gitignore
+
+tsconfig.json 
+ts的配置文件, 指定待编译文件 + 定义编译选项 
+
+ts 使用第三方类库:
+从npm安装第三方类库时, 要同时安装第三方类库的类型声明文件
+如果想在ts中使用非ts资源, 需要告诉ts推断导入资源的类型。 在自己的项目里创建 custom.d.ts 文件
+
+webpack集成ts: 
+https://webpack.js.org/guides/typescript/#root
+
+1-  安装 ts compiler 和 ts-loader
+2-  tsconfig.json 配置编译文件 和 编译选项 
+3-  webpack.config.js 配置loader
+4-  ts中使用eslint
+https://juejin.im/post/6844903880006844424
+
+测试
+
+
+如果你使用eslint本身不支持的特性，可以使用 babel-eslint。否则可以使用默认解析器而不需要使用babel-eslint。
+
+typedocOptions 用于生成ts文档
+
+
+做的:
+ts + webpack + 测试脚本
+支持umd / cjs 方式 
+文档 

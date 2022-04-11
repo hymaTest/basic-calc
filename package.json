@@ -1,19 +1,77 @@
 {
   "name": "basic-calc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hymaTest/basic-calc.git"
+    "url": "https://github.com/hymaTest/basic-calc.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hymaTest/basic-calc/issues"
+  "keywords": [],
+  "author": "hyma",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack serve  --config dev/webpack.dev.js --port 8088",
+    "build": "webpack --config dev/webpack.prod.js",
+    "build:umd": "cross-env BABEL_ENV=umd X_MINIFY=1 X_FORMAT=umd webpack --config dev/webpack.prod.js",
+    "build:cjs": "cross-env BABEL_ENV=cjs X_MINIFY=1 X_FORMAT=cjs webpack --config dev/webpack.prod.js",
+    "doc": "typedoc src",
+    "lint": "eslint --max-warnings=0 \"src/**/*.ts\""
   },
-  "homepage": "https://github.com/hymaTest/basic-calc#readme"
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@digitalroute/cz-conventional-changelog-for-jira": "^6.0.2",
+    "@types/expect-puppeteer": "^4.4.5",
+    "@types/jest": "^26.0.15",
+    "@types/jest-environment-puppeteer": "^4.4.0",
+    "@types/puppeteer": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.1",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.2.2",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "expect-puppeteer": "^4.4.0",
+    "get-pixels": "^3.3.2",
+    "html-webpack-plugin": "^4.5.0",
+    "husky": "^4.3.0",
+    "jest": "^26.6.1",
+    "jest-puppeteer": "3.9.0",
+    "lint-staged": "^10.5.1",
+    "puppeteer": "5.4.0",
+    "regenerator-runtime": "^0.13.7",
+    "terser-webpack-plugin": "^5.0.2",
+    "ts-jest": "^26.4.3",
+    "ts-loader": "^5.3.3",
+    "tslint": "^5.11.0",
+    "tslint-loader": "^3.5.4",
+    "typedoc": "^0.19.2",
+    "typescript": "^4.0.5",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.2.0"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@turf/turf": "^5.1.6",
+    "pixi.js": "^5.3.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --max-warnings=0"
+    ]
+  }
 }
